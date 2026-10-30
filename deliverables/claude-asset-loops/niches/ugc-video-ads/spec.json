@@ -1,0 +1,25 @@
+{
+  "id": "ugc-video-ads",
+  "title": "AI UGC and short performance video ads",
+  "required_brief": ["product", "audience", "offer", "proof", "hook", "cta", "must_avoid", "on_screen_words", "spoken_or_caption"],
+  "commercial": {
+    "revision_cap": 2,
+    "default_usage": "Paid and organic social for this product for 90 days, plus one refresh cycle inside the revision cap. Whitelisting and spark-ads rights stay with the client only if the proposal says so."
+  },
+  "menu": {
+    "starter": { "price_usd": 240, "counts": { "vertical-ad": 3, "cover": 3 } },
+    "volume": { "price_usd": 450, "counts": { "vertical-ad": 6, "cover": 6 } }
+  },
+  "roles": {
+    "vertical-ad": {
+      "kind": "video",
+      "duration_sec": { "min": 12, "max": 18 },
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    },
+    "cover": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "social-design-kits",
+  "title": "Always-on social design kits",
+  "required_brief": ["audience", "offer", "proof", "voice", "destinations", "references", "must_avoid", "words_on_image"],
+  "commercial": {
+    "revision_cap": 2,
+    "default_usage": "Organic social and the client's own paid social for 12 months. No resale of the source files."
+  },
+  "menu": {
+    "starter": { "price_usd": 180, "counts": { "feed-portrait": 8, "story": 4 } },
+    "launch": { "price_usd": 360, "counts": { "feed-portrait": 16, "story": 8, "carousel-slide": 8 } },
+    "week": { "price_usd": 240, "counts": { "feed-portrait": 8, "story": 4, "carousel-slide": 6 } }
+  },
+  "roles": {
+    "feed-portrait": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1350 }]
+    },
+    "story": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    },
+    "carousel-slide": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1350 }]
+    }
+  }
+}
