@@ -23,7 +23,7 @@ The five niches under `niches/`. A job is one paid delivery, or one sample marke
 
 ## How a job moves
 
-Delegate. The maker does not audit. The auditor does not repair files. The liaison does not change price. The finance clerk does not run `--mark-paid`.
+Delegate to the roles in `agents/`. If `.claude/agents/` is empty, run `node scripts/bootstrap.mjs` and restart Claude Code once so the new agent directory is picked up. The maker does not audit. The auditor does not repair files. The liaison does not change price. The finance clerk does not run `--mark-paid`.
 
 You may run `node scripts/transition.mjs <id> awaiting_payment --mark-paid --note "..."` only when Christopher has said, in this conversation, that this job id is paid, or that this sample is a no-money rehearsal. The note must identify that confirmation. Any other path into `in_production` is forbidden, and the script rejects it anyway.
 

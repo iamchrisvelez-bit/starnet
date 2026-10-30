@@ -6,7 +6,7 @@ Claude Code may install tools and add scripts under `scripts/` when a contract b
 
 | Script | Contract |
 | --- | --- |
-| `scripts/bootstrap.mjs` | Writes `studio/readiness.json`. Does not pretend a missing binary is present. |
+| `scripts/bootstrap.mjs` | Writes `studio/readiness.json` and copies `agents/` into `.claude/agents/`. Does not pretend a missing binary is present. |
 | `scripts/new-job.mjs` | Creates `jobs/<id>` for a known niche. |
 | `scripts/transition.mjs` | The only state changer. |
 | `scripts/seal-delivery.mjs` | Hashes `delivery/` after `in_production`. |

@@ -10,6 +10,9 @@ const pack = join(scripts, "..");
 const root = mkdtempSync(join(tmpdir(), "asset-loop-"));
 const failures = [];
 
+const agentFiles = readdirSync(join(pack, "agents")).filter((name) => name.endsWith(".md"));
+if (agentFiles.length !== 9) failures.push(`expected 9 agents, found ${agentFiles.length}`);
+
 for (const niche of readdirSync(join(pack, "niches"))) {
   const spec = JSON.parse(readFileSync(join(pack, "niches", niche, "spec.json"), "utf8"));
   if (spec.id !== niche) failures.push(`${niche}: spec id is ${spec.id}`);

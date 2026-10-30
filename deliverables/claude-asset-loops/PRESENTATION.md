@@ -71,7 +71,7 @@ Headline: Nine roles, and the maker is not the auditor.
 | Client liaison | Account manager who sorts notes into scope | Change the price |
 | Finance clerk | Bookkeeper | Mark an invoice paid |
 
-The auditor's test is the sold request. A striking file that answers a different brief fails. Instructions are in `.claude/agents/`.
+The auditor's test is the sold request. A striking file that answers a different brief fails. Instructions are in `agents/`. Bootstrap copies them into `.claude/agents/` for Claude Code. The first time that directory appears, restart Claude Code so it loads them.
 
 Notes: Claude Code loads these when this folder is the project. Point at the agent by name when you delegate.
 
@@ -108,7 +108,7 @@ Notes: Walk a sample through this before a stranger sees it. `node scripts/self-
 
 Headline: The defect list is the product's spine.
 
-A pass needs the sold count, the client's words, the client's product or game, the policy (no unconsented face, no franchise character, no invented claim), and a seal that still matches. "Make it pop" is not a defect the maker can execute, so the auditor is not allowed to write it. The report template is the shape in `.claude/agents/auditor.md`.
+A pass needs the sold count, the client's words, the client's product or game, the policy (no unconsented face, no franchise character, no invented claim), and a seal that still matches. "Make it pop" is not a defect the maker can execute, so the auditor is not allowed to write it. The report template is the shape in `agents/auditor.md`.
 
 Two failed audits on one job stop for Christopher. That rule exists so a stubborn miss does not loop all night on his machine.
 

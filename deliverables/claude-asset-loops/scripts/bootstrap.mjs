@@ -1,6 +1,15 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { STUDIO_ROOT, studioPath, which } from "./lib.mjs";
+
+const agentSource = studioPath("agents");
+if (existsSync(agentSource)) {
+  const agentDest = studioPath(".claude", "agents");
+  mkdirSync(agentDest, { recursive: true });
+  for (const name of readdirSync(agentSource)) {
+    if (name.endsWith(".md")) cpSync(join(agentSource, name), join(agentDest, name));
+  }
+}
 
 const checks = [
   { id: "node", ok: true, detail: process.version },

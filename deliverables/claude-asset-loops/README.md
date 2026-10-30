@@ -6,7 +6,7 @@ Christopher owns the business. The agents run intake, pricing, production, audit
 
 ## Put it on the PC
 
-Copy this directory to its own folder. Open that folder in Claude Code so `.claude/agents/` and `CLAUDE.md` belong to the session. Do not start from a parent repository and hope these agents win.
+Copy this directory to its own folder. Open that folder in Claude Code so `CLAUDE.md` belongs to the session. Run `node scripts/bootstrap.mjs` once and restart Claude Code so it loads `.claude/agents/`. Do not start from a parent repository and hope these agents win.
 
 First message:
 
@@ -22,7 +22,7 @@ First message:
 | `POLICY.md` | Disclosure, likeness, IP, claims |
 | `HUMAN.md` | The blanks only Christopher fills |
 | `TOOLSTACK.md` | What the scripts and the render tools must do |
-| `.claude/agents/` | The nine roles |
+| `agents/` | The nine roles. `bootstrap.mjs` copies them into `.claude/agents/`, which this repository does not track |
 | `niches/<id>/` | Offer, pipeline, audit, and `spec.json` |
 | `scripts/` | State machine and delivery checks |
 
