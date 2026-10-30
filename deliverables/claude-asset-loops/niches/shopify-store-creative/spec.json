@@ -1,0 +1,35 @@
+{
+  "id": "shopify-store-creative",
+  "title": "Shopify product and store creative",
+  "required_brief": ["products", "offer", "audience", "proof", "references", "must_avoid", "background", "label_text"],
+  "commercial": {
+    "revision_cap": 2,
+    "default_usage": "The client's own storefront, ads, and marketplaces for those products. No use on a different brand."
+  },
+  "menu": {
+    "starter": { "price_usd": 240, "counts": { "packshot": 6, "scene": 4 } },
+    "launch": { "price_usd": 480, "counts": { "packshot": 12, "scene": 8, "banner": 3, "story": 4 } }
+  },
+  "roles": {
+    "packshot": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 2000, "height": 2000 }]
+    },
+    "scene": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1350 }]
+    },
+    "banner": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 2400, "height": 1000 }]
+    },
+    "story": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    }
+  }
+}

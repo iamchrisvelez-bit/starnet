@@ -1,0 +1,31 @@
+{
+  "id": "youtube-packaging",
+  "title": "YouTube packaging kits",
+  "required_brief": ["channel_promise", "video_topic", "audience", "words_on_thumbnail", "references", "must_avoid", "face_policy"],
+  "commercial": {
+    "revision_cap": 2,
+    "default_usage": "The client's YouTube channel and the social posts that promote those videos."
+  },
+  "menu": {
+    "five": { "price_usd": 80, "counts": { "thumbnail": 5 } },
+    "channel": { "price_usd": 160, "counts": { "thumbnail": 8, "banner": 1, "avatar": 1 } },
+    "month": { "price_usd": 150, "counts": { "thumbnail": 12 } }
+  },
+  "roles": {
+    "thumbnail": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1280, "height": 720 }]
+    },
+    "banner": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 2560, "height": 1440 }]
+    },
+    "avatar": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 800, "height": 800 }]
+    }
+  }
+}
