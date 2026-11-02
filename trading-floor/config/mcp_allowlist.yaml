@@ -1,0 +1,2 @@
+# Tool names an MCP sidecar may register. Empty in Phase 0: nothing is attached.
+servers: {}

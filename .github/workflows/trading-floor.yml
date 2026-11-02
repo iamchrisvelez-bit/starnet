@@ -1,0 +1,38 @@
+name: trading-floor
+
+on:
+  pull_request:
+    paths:
+      - "trading-floor/**"
+      - ".github/workflows/trading-floor.yml"
+  push:
+    branches: [feat/harness-backend]
+    paths:
+      - "trading-floor/**"
+      - ".github/workflows/trading-floor.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  phase0:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: trading-floor
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: uv sync --frozen
+      - run: uv run pytest
+      - run: npm ci && npm test
+        working-directory: trading-floor/services/moonit_connector
+      - run: npm ci && npm test
+        working-directory: trading-floor/apps/console_web

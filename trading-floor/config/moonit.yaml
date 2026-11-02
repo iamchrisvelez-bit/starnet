@@ -1,0 +1,8 @@
+# Non-risk Moonit knobs. Caps that can lose money point at config/risk.yaml
+# and are not copied here. Phase A is devnet only.
+phase: A
+environment: DEVNET
+signing_firewall: required
+public_rpc_allowed: true
+jupiter_enabled: false
+fusion_weights: {}

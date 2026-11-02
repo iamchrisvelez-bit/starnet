@@ -1,0 +1,22 @@
+# Blank rates are unset on purpose. The paper engine refuses a fill that needs
+# a fee rather than inventing a tier. Christopher fills maker_bps, taker_bps,
+# and retrieved_on from the venue's published schedule for his account.
+version: 1
+venues:
+  coinbase_advanced:
+    maker_bps:
+    taker_bps:
+    retrieved_on:
+    source: "https://help.coinbase.com/en/exchange/trading-and-funding/exchange-fees"
+  kraken:
+    maker_bps:
+    taker_bps:
+    retrieved_on:
+    source: "https://www.kraken.com/features/fee-schedule"
+  alpaca_crypto:
+    maker_bps:
+    taker_bps:
+    retrieved_on:
+    source: "https://docs.alpaca.markets/docs/crypto-fees"
+  paper_engine:
+    uses_venue_schedule: true

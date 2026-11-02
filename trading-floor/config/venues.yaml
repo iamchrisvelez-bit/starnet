@@ -1,0 +1,33 @@
+equities_enabled: false
+venues:
+  coinbase_advanced:
+    market: crypto
+    trade_enabled: false
+    market_data: public
+    live_phase: 3
+  kraken:
+    market: crypto
+    trade_enabled: false
+    market_data: public
+    live_phase: 4
+  alpaca_crypto:
+    market: crypto
+    trade_enabled: false
+    market_data: public
+    paper_host: https://paper-api.alpaca.markets
+    live_host: https://api.alpaca.markets
+    data_host: https://data.alpaca.markets
+  alpaca_equities:
+    market: equities
+    trade_enabled: false
+  ibkr_equities:
+    market: equities
+    trade_enabled: false
+    note: "Name reserved. No adapter behavior until a separate approved plan."
+  paper_engine:
+    market: crypto
+    trade_enabled: true
+  moonit:
+    market: solana_memecoin
+    trade_enabled: false
+    phase: A

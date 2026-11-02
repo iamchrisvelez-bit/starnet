@@ -1,0 +1,6 @@
+# Backtester uses these. BTC and ETH are 5 bps. Every other symbol must be
+# configured strictly wider than 5. No invented default for other symbols.
+defaults_bps:
+  BTC-USD: 5
+  ETH-USD: 5
+symbols_bps: {}

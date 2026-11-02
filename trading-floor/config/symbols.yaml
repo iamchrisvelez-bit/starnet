@@ -1,0 +1,11 @@
+canonical:
+  BTC-USD:
+    coinbase: BTC-USD
+    kraken: XBTUSD
+    kraken_result: XXBTZUSD
+    alpaca: BTC/USD
+  ETH-USD:
+    coinbase: ETH-USD
+    kraken: ETHUSD
+    kraken_result: XETHZUSD
+    alpaca: ETH/USD

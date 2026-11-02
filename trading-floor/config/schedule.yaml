@@ -1,0 +1,13 @@
+timezone_display: America/New_York
+crypto_bars: ["1h", "4h", "1d"]
+daily_bar_close_utc: "00:00"
+daily_plan_et: "09:00"
+nightly_review_et: "18:00"
+saturday_reflection_et: "10:00"
+equities:
+  enabled: false
+  data_refresh_et: "07:30"
+  research_et: "08:30"
+  first_cycle_et: "09:35"
+  wind_down_et: "15:45"
+  reconciliation_et: "16:15"

@@ -1,0 +1,4 @@
+# Phase 0 does not call a model. A missing price table or a missing
+# ai_daily_spend_cap_usd (config/risk.yaml) means no LLM call.
+models: []
+token_prices_usd_per_million: {}
