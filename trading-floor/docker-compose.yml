@@ -1,0 +1,130 @@
+# Phase 0 processes. Agents, research, strategy, backtester, and treasurer are not started.
+# Live confirmation is a TTY phrase. A healthcheck cannot type it.
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB:?set POSTGRES_DB}
+    volumes:
+      - ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks: [tf_core, tf_exec]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7
+    networks: [tf_core, tf_exec]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  data:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_data.main"]
+    env_file: [.env]
+    networks: [tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  risk:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_risk.main"]
+    env_file: [.env]
+    volumes:
+      - ./config/risk.yaml:/app/config/risk.yaml:ro
+    networks: [tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  compliance:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_compliance.main"]
+    env_file: [.env]
+    volumes:
+      - ./config/risk.yaml:/app/config/risk.yaml:ro
+    networks: [tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  execution:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_execution.main"]
+    env_file: [.env]
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./config/risk.yaml:/app/config/risk.yaml:ro
+    networks: [tf_core, tf_exec]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  comms:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_comms.main"]
+    env_file: [.env]
+    networks: [tf_public, tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  scheduler:
+    build: .
+    command: ["uv", "run", "python", "-m", "tf_scheduler.main"]
+    env_file: [.env]
+    networks: [tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  console_api:
+    build: .
+    env_file: [.env]
+    ports: ["8080:8080"]
+    networks: [tf_public, tf_core]
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  console_web:
+    build:
+      context: ./apps/console_web
+    environment:
+      CONSOLE_API_PROXY: http://console_api:8080
+    ports: ["5173:5173"]
+    networks: [tf_public]
+    depends_on: [console_api]
+    restart: unless-stopped
+
+  moonit_connector:
+    build:
+      context: ./services/moonit_connector
+    env_file: [.env]
+    environment:
+      MOONIT_ENVIRONMENT: DEVNET
+      SIGNING_FIREWALL: required
+    networks: [tf_exec]
+    restart: unless-stopped
+
+networks:
+  tf_public:
+  tf_core:
+  tf_exec:

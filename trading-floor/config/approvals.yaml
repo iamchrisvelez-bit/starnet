@@ -1,0 +1,5 @@
+approval_mode: all
+above_threshold_usd:
+entry_ttl_sec: 600
+quiet_hours_start_et: "23:00"
+quiet_hours_end_et: "07:00"

@@ -1,0 +1,67 @@
+version: 1
+crypto:
+  risk_per_trade_pct: 0.5
+  max_coin_pct: 30
+  max_non_btc_eth_combined_pct: 20
+  max_gross_pct: 100
+  leverage: 1
+  daily_loss_pct: -3
+  weekly_loss_pct: -6
+  max_drawdown_pct: -12
+  order_type_default: limit
+  market_orders_allowed_for: [exit, stop]
+  require_stop_on_entry: true
+  flash_move_pct: 8
+  flash_move_window_sec: 900
+  stablecoins: [USDC, USDT]
+  cash_proxies: [USD, USDC]
+  stablecoin_depeg_pct: 0.5
+  max_orders_per_minute: 10
+  max_orders_per_day: 200
+  quote_max_age_sec: 60
+equities:
+  enabled: false
+  risk_per_trade_pct: 0.5
+  max_position_pct: 10
+  max_gross_pct: 100
+  leverage: 1
+  daily_loss_pct: -2
+  weekly_loss_pct: -4
+  max_drawdown_pct: -10
+  max_limit_deviation_pct: 2
+  require_stop_on_entry: true
+  quote_max_age_sec: 60
+shared:
+  heartbeat_block_sec: 15
+  heartbeat_cancel_sec: 120
+  reject_halt_count: 3
+  reject_halt_window_sec: 300
+  ai_daily_spend_cap_usd:
+moonit:
+  wallet_balance_cap_usd:
+  max_trade_pct_of_wallet: 2
+  max_open_positions:
+  daily_loss_pct:
+  max_slippage_bps:
+  max_priority_fee_lamports:
+  liquidity_floor_usd:
+  age_floor_minutes:
+  max_top_holder_pct:
+  round_trip_cost_ceiling_pct: 5
+  cost_vs_avg_win_halt_pct: 25
+  expectancy_lookback_trades: 50
+  max_hold_minutes: 45
+  hard_stop_pct: -20
+  breakeven_stop_trigger_pct: 15
+  take_profit_tranches:
+    - { fraction: 0.50, be_plus_pct: 30 }
+    - { fraction: 0.30, be_plus_pct: 45 }
+    - { fraction: 0.20, be_plus_pct: 60 }
+  never_hold_past_be_plus_pct: 60
+  max_trades_per_day_phase_c: 25
+  max_trades_per_day_phase_d: 100
+  max_orders_per_day: 400
+  llm_budget_sec: 3
+  approval_ttl_sec: 60
+  allow_token2022_transfer_fee: false
+  allow_token2022_hooks: false

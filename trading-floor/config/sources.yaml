@@ -1,0 +1,4 @@
+# Christopher-curated. The system must not append to this file.
+sources: []
+exit_liquidity_window_sec: 3600
+public_label_wallets: []
