@@ -1,0 +1,35 @@
+{
+  "id": "mobile-game-ua",
+  "title": "Mobile game user-acquisition creatives",
+  "required_brief": ["game_name", "genre", "core_verb", "audience", "hook", "cta", "references", "must_avoid", "art_source", "on_screen_words"],
+  "commercial": {
+    "revision_cap": 2,
+    "default_usage": "User-acquisition tests for this game on the client's ad accounts for 90 days. Store listing use requires the static tier or a written add-on."
+  },
+  "menu": {
+    "static": { "price_usd": 200, "counts": { "vertical-still": 5, "square-still": 4 } },
+    "hooks": { "price_usd": 420, "counts": { "vertical-video": 3, "endcard": 3 } }
+  },
+  "roles": {
+    "vertical-still": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    },
+    "square-still": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1080 }]
+    },
+    "vertical-video": {
+      "kind": "video",
+      "duration_sec": { "min": 14, "max": 20 },
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    },
+    "endcard": {
+      "kind": "image",
+      "mime": ["image/png", "image/jpeg"],
+      "sizes": [{ "width": 1080, "height": 1920 }]
+    }
+  }
+}
